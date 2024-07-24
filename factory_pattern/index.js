@@ -57,7 +57,7 @@ class ConcreteProduct2 {
  * its base interface. As long as the client keeps working with the creator via
  * the base interface, you can pass it any creator's subclass.
  */
-function clientCode(creator) {
+function TestMockEx(creator) {
     // ...
     console.log('Client: I\'m not aware of the creator\'s class, but it still works.');
     console.log(creator.someOperation());
@@ -68,7 +68,7 @@ function clientCode(creator) {
  * environment.
  */
 console.log('App: Launched with the ConcreteCreator1.');
-clientCode(new ConcreteCreator1());
+TestMockEx(new ConcreteCreator1());
 console.log('');
 console.log('App: Launched with the ConcreteCreator2.');
-clientCode(new ConcreteCreator2());
+TestMockEx(new ConcreteCreator2());

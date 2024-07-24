@@ -1,4 +1,5 @@
 "use strict";
+// suggest
 class Animals {
     log() {
         try {
@@ -19,11 +20,13 @@ class Animals {
 }
 class Dog extends Animals {
     funcFactory() {
+        // reason why invoke another class is for add interface into every call of Behavior
         return new DogBehavior();
     }
 }
 class Chicken extends Animals {
     funcFactory() {
+        // reason why invoke another class is for add interface into every call of Behavior
         return new ChickenBehavior();
     }
 }
