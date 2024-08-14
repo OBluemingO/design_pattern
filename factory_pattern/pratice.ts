@@ -1,4 +1,5 @@
 // suggest
+// ง่ายๆก็คือการมองหา property ของสิ่งที่เหมือนกันและแยกออกมาให้เป็น parent class
 
 interface Normal {
   Eat(): string
@@ -56,6 +57,51 @@ function someLogic(factory: Animals){
 
 console.log(someLogic(new Dog()));
 
+// refactor
 
+interface IEnging {
+  gear: 'manual' | 'auto'
+  year: '2020' | '2024'
+  wheel: '4' | '6'
+  detail(): string
+}
 
+abstract class Car {
+  public value: string
+  constructor(){
+    this.value = ''
+  }
+
+  abstract factoryTest(): void
+
+  print() {
+    console.log(`each same factory ${this.value}`)
+  }
+}
+
+class EvCar extends Car {
+  factoryTest(): void {
+    const output = new EvCarDetail()
+    this.value = output.detail()
+  }
+}
+
+class EvCarDetail implements IEnging {
+  public wheel: IEnging["wheel"];
+  public  year: IEnging["year"];
+  public gear: IEnging["gear"];
+
+  constructor() {
+    this.wheel = "4";
+    this.year = "2020";
+    this.gear = "auto";
+  }
+
+  detail(): string {
+    return `BYD ${this.gear} ${this.wheel} ${this.year}`
+  }
+}
+
+const result = new EvCar()
+result.print()
 

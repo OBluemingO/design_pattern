@@ -1,5 +1,6 @@
 "use strict";
 // suggest
+// ง่ายๆก็คือการมองหา property ของสิ่งที่เหมือนกันและแยกออกมาให้เป็น parent class
 class Animals {
     log() {
         try {
@@ -44,3 +45,29 @@ function someLogic(factory) {
     return factory.log();
 }
 console.log(someLogic(new Dog()));
+class Car {
+    constructor() {
+        this.value = '';
+    }
+    print() {
+        console.log(`each same factory ${this.value}`);
+    }
+}
+class EvCar extends Car {
+    factoryTest() {
+        const output = new EvCarDetail();
+        this.value = output.detail();
+    }
+}
+class EvCarDetail {
+    constructor() {
+        this.wheel = "4";
+        this.year = "2020";
+        this.gear = "auto";
+    }
+    detail() {
+        return `BYD ${this.gear} ${this.wheel} ${this.year}`;
+    }
+}
+const result = new EvCar();
+result.print();
